@@ -28,7 +28,7 @@ const upload = multer({
   storage: storage
 });
 
-router.post('/upload', upload.single('photo'), => (request, response){
+router.post('/upload', upload.single('photo'), (request, response) => {
   if (request.fileValidationError){
     response.status(400).json({
       error: request.fileValidationError
