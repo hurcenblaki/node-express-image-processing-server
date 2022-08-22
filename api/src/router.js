@@ -1,6 +1,7 @@
-const {Router} = require('express');
-const router = Router();
+const express = require('express');
 const multer = require('multer');
+const Router = express.Router();
+const router = Router();
 
 function filename(request, file, callback) {
   callback(null, file.originalname);
@@ -8,7 +9,7 @@ function filename(request, file, callback) {
 
 const storage = multer.diskStorage({
   destination: 'api/uploads/',
-  filename: filename
+  filename: filename()
 });
 
 function fileFilter(request, file, callback) {
