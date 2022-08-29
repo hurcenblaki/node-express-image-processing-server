@@ -1,5 +1,6 @@
-const {Router} = require('express');
+const express = require('express');
 const multer = require('multer');
+const Router = express.Router();
 const router = Router();
 
 function filename(request, file, callback) {
@@ -8,11 +9,11 @@ function filename(request, file, callback) {
 
 const storage = multer.diskStorage({
   destination: 'api/uploads/',
-  filename: filename
+  filename: 'filename'
 });
 
 function fileFilter(request, file, callback) {
-  if (file.mimetype === image/png){
+  if (file.mimetype !== 'image/png'){
     request.fileValidationError = 'Wrong file type';
     callback(null, false, new Error('Wrong file type'));
   }
@@ -23,7 +24,7 @@ function fileFilter(request, file, callback) {
 
 const upload = multer({
   fileFilter: fileFilter(),
-  storage: storage
+  storage: 'storage'
 });
 
 router.post('/upload', upload.single('photo'), (request, response) => {
