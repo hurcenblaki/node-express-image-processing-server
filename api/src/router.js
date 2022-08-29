@@ -1,6 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-const {Router} = express.Router();
+const Router = express.Router();
 const router = Router();
 
 function filename(request, file, callback) {
