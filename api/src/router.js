@@ -3,6 +3,7 @@ const {
 } = require('express');
 const multer = require('multer');
 const router = Router();
+import 'path';
 
 function filename(request, file, callback) {
   callback(null, file.originalname);
