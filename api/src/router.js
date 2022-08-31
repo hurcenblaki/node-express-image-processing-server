@@ -23,7 +23,7 @@ function fileFilter(request, file, callback) {
 
 const upload = multer({
   fileFilter: fileFilter,
-  storage: 'storage'
+  storage: storage
 });
 
 router.post('/upload', upload.single('photo'), (request, response) => {
