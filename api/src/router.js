@@ -22,7 +22,7 @@ function fileFilter(request, file, callback) {
 }
 
 const upload = multer({
-  fileFilter: fileFilter(),
+  fileFilter: fileFilter,
   storage: 'storage'
 });
 
